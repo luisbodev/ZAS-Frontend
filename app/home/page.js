@@ -119,7 +119,7 @@ export default function Home() {
                     //     Information for {selectedChip}
                     //     <Chart />
                     // </div>
-                    <div className='px-4'>
+                    <div className='px-4 pb-8'>
                         <div class="flex w-full h-36 bg-colors-1 rounded-lg shadow p-4 overflow-hidden">
                             <div>
                                 <button class="w-24 rounded-full bg-colors-5 text-colors-1 text-xs font-normal text-center p-1">Saldo actual</button>
