@@ -112,14 +112,14 @@ export default function Home() {
                 ))}
             </div>
 
-            <div className="flex-grow px-4 pt-4">
+            <div className="flex-grow pt-4">
                 {/* Content based on selected chip */}
                 {selectedChip == 'Mi Cuenta' && (
                     // <div className="mt-4 p-4 bg-gray-100">
                     //     Information for {selectedChip}
                     //     <Chart />
                     // </div>
-                    <div>
+                    <div className='px-4'>
                         <div class="flex w-full h-36 bg-colors-1 rounded-lg shadow p-4 overflow-hidden">
                             <div>
                                 <button class="w-24 rounded-full bg-colors-5 text-colors-1 text-xs font-normal text-center p-1">Saldo actual</button>
@@ -211,7 +211,7 @@ export default function Home() {
                 )}
                 {selectedChip == 'Gastos' && (
 
-                    <div className='mt-4'>
+                    <div className='px-4 mt-4'>
                         <div class="flex border-b-2 border-colors-1 pb-8">
                             <div class="w-1/2">
                                 <Doughnut data={dataChart} options={options} />
@@ -293,13 +293,119 @@ export default function Home() {
                 {selectedChip == 'Tarjetas' && (
 
                     <div>
-                        Tarjetas en construcción...
+
+                        <div className='flex justify-around'>
+                            <div className="text-center text-colors-3 text-base font-bold font-['Poppins'] leading-[52px] border-b-2 border-colors-7">Física</div>
+                            <div className="text-center text-colors-3 text-base font-bold font-['Poppins'] leading-[52px]">Digital</div>
+                        </div>
+
+                        <div className="flex overflow-x-auto space-x-4 py-4 px-4">
+                            <div className='flex-none'>
+                                <Image
+                                    src="/card/card.png" // Path to your image in the public directory
+                                    alt="Description of the image"
+                                    width={315} // Set the desired width of the image
+                                    height={184} // Set the desired width of the image
+                                />
+
+                            </div>
+                            <div className='flex-none '>
+                                <Image
+                                    src="/card/card.png" // Path to your image in the public directory
+                                    alt="Description of the image"
+                                    width={315} // Set the desired width of the image
+                                    height={184} // Set the desired width of the image
+                                />
+
+                            </div>
+                        </div>
+
+                        <div className='px-4'>
+                            <div class="flex justify-around items-end w-full h-16 bg-colors-3 rounded-lg shadow p-2 overflow-hidden mt-4">
+                                <button class="flex flex-col justify-center align-end" onClick={() => router.push('/home')}>
+                                    <div className='flex w-full justify-center align-center'>
+                                        <Image
+                                            src="/icons/unlock.svg" // Path to your image in the public directory
+                                            alt="Description of the image"
+                                            width={25} // Set the desired width of the image
+                                            height={20} // Set the desired height of the image
+                                        />
+                                    </div>
+                                    <div className='flex w-full justify-center align-end'><span className='pt-1 text-white text-xs font-semibold text-center'>Abono</span></div>
+                                </button>
+                                <button class="flex flex-col justify-center align-end" onClick={() => router.push('/')}>
+                                    <div className='flex w-full justify-center align-end'>
+                                        <Image
+                                            src="/icons/view.svg" // Path to your image in the public directory
+                                            alt="Description of the image"
+                                            width={30} // Set the desired width of the image
+                                            height={20} // Set the desired height of the image
+                                            className='text-white '
+                                        />
+                                    </div>
+                                    <div className='flex w-full justify-center align-center'><span className='pt-1 text-white text-xs font-semibold text-center'>Movimiento</span></div>
+                                </button>
+                                <button class="flex flex-col justify-center align-end" onClick={() => router.push('/')}>
+                                    <div className='flex w-full justify-center align-center'>
+                                        <Image
+                                            src="/icons/plus2.svg" // Path to your image in the public directory
+                                            alt="Description of the image"
+                                            width={30} // Set the desired width of the image
+                                            height={20} // Set the desired height of the image
+                                        />
+                                    </div>
+                                    <div className="flex w-full justify-center align-end"><span className='text-white text-xs font-semibold text-center'>Recarga</span></div>
+                                </button>
+                            </div>
+                        </div>
+
                     </div>
                 )}
                 {selectedChip == 'Pagos' && (
 
-                    <div>
-                        Pagos en construcción ...
+                    <div className='px-4'>
+                        <div className=" text-colors-1 text-base font-bold font-['Poppins'] leading-[30px]">Paga tus servicios</div>
+                        <div className="w-[131px] h-1 bg-colors-5 rounded-[50px] shadow" />
+
+                        <div className='mt-4'>
+                            <div className="w-full h-[150px] flex bg-colors-6 rounded-[20px] shadow p-4">
+                                <div className='w-1/2 flex justify-center items-center'>
+                                    <Image
+                                        src="/icons/grad.svg" // Path to your image in the public directory
+                                        alt="Description of the image"
+                                        width={92} // Set the desired width of the image
+                                        height={92} // Set the desired height of the image
+                                    />
+                                </div>
+                                <div className='w-1/2 flex items-center'>
+                                    <div>
+                                        <span className="text-colors-1 text-base font-bold font-['Poppins'] mt-4">Universidad</span>
+                                        <br />
+                                        <span className="text-colors-1 text-base font-light font-['Poppins'] leading-normal mt-4">Mensualidad<br />Biblioteca<br />Parqueo <br /></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='mt-4'>
+                            <div className="w-full h-[150px] flex bg-colors-6 rounded-[20px] shadow p-4">
+                                <div className='w-1/2 flex justify-center items-center'>
+                                    <Image
+                                        src="/icons/poll.svg" // Path to your image in the public directory
+                                        alt="Description of the image"
+                                        width={92} // Set the desired width of the image
+                                        height={92} // Set the desired height of the image
+                                    />
+                                </div>
+                                <div className='w-1/2 flex items-center'>
+                                    <div>
+                                        <span className="text-colors-1 text-base font-bold font-['Poppins'] mt-4">Facturas</span>
+                                        <br />
+                                        <span className="text-colors-1 text-base font-light font-['Poppins'] leading-normal mt-4">Residencia<br />Agua / Luz<br />Wifi <br />Plataformas</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 )}
 
