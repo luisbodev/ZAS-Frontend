@@ -119,7 +119,7 @@ export default function Home() {
                     //     Information for {selectedChip}
                     //     <Chart />
                     // </div>
-                    <div className='px-4 pb-8'>
+                    <div className='px-4 pb-16'>
                         <div class="flex w-full h-36 bg-colors-1 rounded-lg shadow p-4 overflow-hidden">
                             <div>
                                 <button class="w-24 rounded-full bg-colors-5 text-colors-1 text-xs font-normal text-center p-1">Saldo actual</button>
@@ -211,7 +211,7 @@ export default function Home() {
                 )}
                 {selectedChip == 'Gastos' && (
 
-                    <div className='px-4 mt-4'>
+                    <div className='px-4 mt-4 pb-16'>
                         <div class="flex border-b-2 border-colors-1 pb-8">
                             <div class="w-1/2">
                                 <Doughnut data={dataChart} options={options} />
