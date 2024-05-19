@@ -1,8 +1,17 @@
 'use client'
 import { useEffect, useState } from 'react';
+import LoadingScreen from '@/components/LoadingScreen';
+import Login from '@/components/LoginForm';
 
 export default function Home() {
   const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate a loading delay
+    const timer = setTimeout(() => setIsLoading(false), 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,13 +22,15 @@ export default function Home() {
 
     fetchData();
   }, []);
+  // return (
+  //   <div>
+  //     <h1>Data fetched from API</h1>
+  //     <span>{data.message}</span>
+  //   </div>
+  // );
 
-  if (!data) return <div>Loading...</div>;
+  if (isLoading) return <LoadingScreen />;
 
-  return (
-    <div>
-      <h1>Data fetched from API</h1>
-      <span>{data.message}</span>
-    </div>
-  );
+  return <Login />;
+
 };
