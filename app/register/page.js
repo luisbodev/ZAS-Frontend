@@ -10,13 +10,13 @@ export default function Register() {
     };
     return (
         <div className="fixed inset-0 flex flex-col items-center justify-center bg-white z-50">
-            <div>Work in Progress</div>
+            <div>Trabajo en Progreso</div>
             <div className='mt-4'>
                 <button
                     onClick={navigateToLogin}
                     className="text-blue-500 hover:underline"
                 >
-                    Go back to login
+                    Regresar al Login
                 </button>
             </div>
         </div>

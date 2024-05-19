@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 export default function TextInput({ id, type = 'text', label, value, onChange }) {
   return (
-    <div className="mb-4">
-      <label htmlFor={id} className="block text-gray-700 mb-2">
+    <div className="mb-4 text-colors-1">
+      <label htmlFor={id} className="block  mb-2">
         {label}
       </label>
       <input
@@ -12,7 +12,7 @@ export default function TextInput({ id, type = 'text', label, value, onChange })
         id={id}
         value={value}
         onChange={onChange}
-        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+        className="w-full p-3 border border-colors-1 rounded-lg"
         required
       />
     </div>
@@ -20,9 +20,9 @@ export default function TextInput({ id, type = 'text', label, value, onChange })
 }
 
 TextInput.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   type: PropTypes.string,
-  label: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  label: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
 };

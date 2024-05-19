@@ -30,19 +30,19 @@ export default function LoginForm() {
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="bg-white p-8 mx-4 rounded-lg shadow-lg w-full max-w-md">
-                <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+                <h2 className="text-2xl font-bold mb-6 text-center text-colors-1">Login</h2>
                 <form onSubmit={handleSubmit}>
                     <TextInput
                         id="email"
                         type="email"
-                        label="Email"
+                        label="Correo"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
                     <TextInput
                         id="password"
                         type="password"
-                        label="Password"
+                        label="Contraseña"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
@@ -52,20 +52,21 @@ export default function LoginForm() {
 
                     <button
                         type="submit"
-                        className="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition duration-300"
+                        className="w-full bg-colors-1 text-white p-3 rounded-lg"
+                        onClick={handleFaceIDLogin}
                     >
-                        Login
+                        Iniciar Sesión
                     </button>
                 </form>
                 <div className="text-center mt-4">
                     <hr className="my-4" />
                     <p className="text-gray-600">
-                        Don't have an account?{' '}
+                        No tienes una cuenta?{' '}
                         <button
                             onClick={navigateToRegister}
                             className="text-blue-500 hover:underline"
                         >
-                            Register
+                            Registrarse
                         </button>
                     </p>
                 </div>
