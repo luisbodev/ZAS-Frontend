@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import BottomMenu from '@/components/BottomMenu';
+import TopNav from '@/components/TopNav';
 import Image from 'next/image';
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
@@ -10,7 +11,7 @@ import { Doughnut } from 'react-chartjs-2';
 
 export default function Home() {
     const router = useRouter(); // Use useRouter hook
-    const chipData = ['Mi Cuenta', 'Tarjetas', 'Pagos', 'Gastos'];
+    const chipData = ['Mi Cuenta', 'Tarjetas', 'Pagos', 'Gastos', 'Otros'];
     const [selectedChip, setSelectedChip] = useState(chipData[0]);
 
     ChartJS.register(ArcElement, Tooltip, Legend);
@@ -61,44 +62,8 @@ export default function Home() {
 
     return (
         <div className="flex flex-col flex-grow min-h-screen">
-            <div class="w-full h-40 bg-colors-1 rounded-bl-3xl rounded-br-3xl shadow p-8">
-                <div class=" text-white text-xs font-medium font-['Poppins'] leading-10">Bienvenido</div>
-                <div className='flex justify-between'>
-                    <div class="flex items-center px-2 w-48 h-16 bg-blue-100 rounded-full shadow">
-                        <Image
-                            src="/icons/user.svg" // Path to your image in the public directory
-                            alt="Description of the image"
-                            width={46} // Set the desired width of the image
-                            height={46} // Set the desired height of the image
-                        />
-                        <div class="text-colors-1 text-base font-medium font-['Poppins'] leading-10 ps-2">¡Hol@, Majo!</div>
-                    </div>
 
-                    <div className='flex'>
-                        <button
-                            className='pe-2'
-                            onClick={() => router.push('/metas')}
-                        >
-                            <Image
-                                src="/icons/logros.svg" // Path to your image in the public directory
-                                alt="Description of the image"
-                                width={24} // Set the desired width of the image
-                                height={24} // Set the desired height of the image
-                            />
-                        </button>
-                        <button
-                            onClick={() => router.push('/home')}
-                        >
-                            <Image
-                                src="/icons/bell.svg" // Path to your image in the public directory
-                                alt="Description of the image"
-                                width={24} // Set the desired width of the image
-                                height={24} // Set the desired height of the image
-                            />
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <TopNav />
 
             <div className="flex overflow-x-auto space-x-4 py-4 px-4">
                 {chipData.map((chip, index) => (
@@ -115,10 +80,6 @@ export default function Home() {
             <div className="flex-grow pt-4">
                 {/* Content based on selected chip */}
                 {selectedChip == 'Mi Cuenta' && (
-                    // <div className="mt-4 p-4 bg-gray-100">
-                    //     Information for {selectedChip}
-                    //     <Chart />
-                    // </div>
                     <div className='px-4 pb-16'>
                         <div class="flex w-full h-36 bg-colors-1 rounded-lg shadow p-4 overflow-hidden">
                             <div>
@@ -139,35 +100,35 @@ export default function Home() {
 
                         <div class="flex justify-around items-end w-full h-16 bg-colors-5 rounded-lg shadow p-2 overflow-hidden mt-4">
 
-                            <button class="flex flex-col justify-center align-end" onClick={() => router.push('/home')}>
+                            <button class="flex flex-col justify-center align-end" onClick={() => router.push('/metas')}>
                                 <div className='flex w-full justify-center align-center'>
                                     <Image
-                                        src="/icons/money.svg" // Path to your image in the public directory
+                                        src="/icons/goal.svg" // Path to your image in the public directory
                                         alt="Description of the image"
-                                        width={25} // Set the desired width of the image
-                                        height={20} // Set the desired height of the image
+                                        width={24} // Set the desired width of the image
+                                        height={30} // Set the desired height of the image
                                     />
                                 </div>
-                                <div className='flex w-full justify-center align-end'><span className='pt-1 text-black text-xs font-semibold text-center'>Abono</span></div>
+                                <div className='flex w-full justify-center align-end'><span className='pt-1 text-black text-xs font-semibold text-center'>Metas</span></div>
                             </button>
-                            <button class="flex flex-col justify-center align-end" onClick={() => router.push('/')}>
+                            <button class="flex flex-col justify-center align-end" onClick={() => router.push('/retos')}>
                                 <div className='flex w-full justify-center align-end'>
                                     <Image
-                                        src="/icons/movement.svg" // Path to your image in the public directory
+                                        src="/icons/challenge.svg" // Path to your image in the public directory
                                         alt="Description of the image"
-                                        width={30} // Set the desired width of the image
-                                        height={20} // Set the desired height of the image
+                                        width={24} // Set the desired width of the image
+                                        height={24} // Set the desired height of the image
                                     />
                                 </div>
-                                <div className='flex w-full justify-center align-center'><span className='pt-1 text-black text-xs font-semibold text-center'>Movimiento</span></div>
+                                <div className='flex w-full justify-center align-center'><span className='pt-1 text-black text-xs font-semibold text-center'>Retos</span></div>
                             </button>
                             <button class="flex flex-col justify-center align-end" onClick={() => router.push('/')}>
                                 <div className='flex w-full justify-center align-center'>
                                     <Image
                                         src="/icons/plus.svg" // Path to your image in the public directory
                                         alt="Description of the image"
-                                        width={30} // Set the desired width of the image
-                                        height={20} // Set the desired height of the image
+                                        width={24} // Set the desired width of the image
+                                        height={25} // Set the desired height of the image
                                     />
                                 </div>
                                 <div className="flex w-full justify-center align-end"><span className='text-black text-xs font-semibold text-center'>Recarga</span></div>
@@ -343,7 +304,7 @@ export default function Home() {
                                             className='text-white '
                                         />
                                     </div>
-                                    <div className='flex w-full justify-center align-center'><span className='pt-1 text-white text-xs font-semibold text-center'>Movimiento</span></div>
+                                    <div className='flex w-full justify-center align-center'><span className='pt-1 text-white text-xs font-semibold text-center'>Ver</span></div>
                                 </button>
                                 <button class="flex flex-col justify-center align-end" onClick={() => router.push('/')}>
                                     <div className='flex w-full justify-center align-center'>
@@ -368,23 +329,28 @@ export default function Home() {
                         <div className="w-[131px] h-1 bg-colors-5 rounded-[50px] shadow" />
 
                         <div className='mt-4'>
-                            <div className="w-full h-[150px] flex bg-colors-6 rounded-[20px] shadow p-4">
-                                <div className='w-1/2 flex justify-center items-center'>
-                                    <Image
-                                        src="/icons/grad.svg" // Path to your image in the public directory
-                                        alt="Description of the image"
-                                        width={92} // Set the desired width of the image
-                                        height={92} // Set the desired height of the image
-                                    />
-                                </div>
-                                <div className='w-1/2 flex items-center'>
-                                    <div>
-                                        <span className="text-colors-1 text-base font-bold font-['Poppins'] mt-4">Universidad</span>
-                                        <br />
-                                        <span className="text-colors-1 text-base font-light font-['Poppins'] leading-normal mt-4">Mensualidad<br />Biblioteca<br />Parqueo <br /></span>
+                            <button
+                                className='w-full'
+                                onClick={() => { router.push('/universidad'); }}
+                            >
+                                <div className="w-full h-[150px] flex bg-colors-6 rounded-[20px] shadow p-4">
+                                    <div className='w-1/2 flex justify-center items-center'>
+                                        <Image
+                                            src="/icons/grad.svg" // Path to your image in the public directory
+                                            alt="Description of the image"
+                                            width={92} // Set the desired width of the image
+                                            height={92} // Set the desired height of the image
+                                        />
+                                    </div>
+                                    <div className='w-1/2 flex items-center'>
+                                        <div>
+                                            <span className="text-colors-1 text-base font-bold font-['Poppins'] mt-4">Universidad</span>
+                                            <br />
+                                            <span className="text-colors-1 text-base font-light font-['Poppins'] leading-normal mt-4">Mensualidad<br />Biblioteca<br />Parqueo <br /></span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </button>
                         </div>
 
                         <div className='mt-4'>
@@ -408,6 +374,83 @@ export default function Home() {
                         </div>
                     </div>
                 )}
+                {selectedChip == 'Otros' && (
+
+                    <div className='px-4'>
+
+                        <div className='flex gap-4 mt-4'>
+                            <button
+                                className='w-1/2'
+                                onClick={() => { router.push('/colectas'); }}
+                            >
+                                <div className="w-full flex bg-colors-3 rounded-[20px] shadow p-4 h-[143px]">
+                                    <div className='w-full flex flex-col justify-center items-center'>
+                                        <Image
+                                            src="/icons/colectas.svg" // Path to your image in the public directory
+                                            alt="Description of the image"
+                                            width={57} // Set the desired width of the image
+                                            height={57} // Set the desired height of the image
+                                        />
+                                        <span className="text-white text-base font-['Poppins'] mt-2">Colectas</span>
+                                    </div>
+                                </div>
+                            </button>
+                            <button
+                                className='w-1/2'
+                                // onClick={() => { router.push('/home'); }}
+                            >
+                                <div className="w-full flex bg-colors-3 rounded-[20px] shadow p-4 h-[143px]">
+                                    <div className='w-full flex flex-col justify-center items-center'>
+                                        <Image
+                                            src="/icons/remesas.svg" // Path to your image in the public directory
+                                            alt="Description of the image"
+                                            width={57} // Set the desired width of the image
+                                            height={57} // Set the desired height of the image
+                                        />
+                                        <span className="text-white text-base font-['Poppins'] mt-2">Remesas</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                        <div className='flex gap-4 mt-4'>
+                            <button
+                                className='w-1/2'
+                                // onClick={() => { router.push('/home'); }}
+                            >
+                                <div className="w-full flex bg-colors-3 rounded-[20px] h-[143px] shadow p-4">
+                                    <div className='w-full flex flex-col justify-center items-center'>
+                                        <Image
+                                            src="/icons/money2.svg" // Path to your image in the public directory
+                                            alt="Description of the image"
+                                            width={57} // Set the desired width of the image
+                                            height={57} // Set the desired height of the image
+                                        />
+                                        <span className="text-white text-base font-['Poppins'] mt-2">Retiro de efectivo</span>
+                                    </div>
+                                </div>
+                            </button>
+                            <button
+                                className='w-1/2'
+                                // onClick={() => { router.push('/home'); }}
+                            >
+                                <div className="w-full flex bg-colors-3 rounded-[20px] shadow p-4 h-[143px]">
+                                    <div className='w-full flex flex-col justify-center items-center'>
+                                        <Image
+                                            src="/icons/recargas.svg" // Path to your image in the public directory
+                                            alt="Description of the image"
+                                            width={57} // Set the desired width of the image
+                                            height={57} // Set the desired height of the image
+                                        />
+                                        <span className="text-white text-base font-['Poppins'] mt-2">Recargas</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+
+
+                    </div>
+                )}
+
 
             </div>
 

@@ -22,7 +22,7 @@ export default function BottomMenu() {
                     </div>
                     <div className='flex w-full justify-center align-center'><span className='pt-1 text-black text-xs font-semibold text-center'>Home</span></div>
                 </button>
-                <button class="flex flex-col justify-center align-center" onClick={() => router.push('/home')}>
+                <button class="flex flex-col justify-center align-center" onClick={() => router.push('/qr')}>
                     <div className='flex w-full justify-center align-center'>
                         <Image
                             src="/icons/qr.svg" // Path to your image in the public directory
@@ -33,7 +33,7 @@ export default function BottomMenu() {
                     </div>
                     <div className='flex w-full justify-center align-center'><span className='pt-1 text-black text-xs font-semibold text-center'>Qr</span></div>
                 </button>
-                <button class="flex flex-col justify-center align-center" onClick={() => router.push('/home')}>
+                <button class="flex flex-col justify-center align-center" onClick={() => router.push('/enviar')}>
                     <div className='flex w-full justify-center align-center'>
                         <Image
                             src="/icons/send.svg" // Path to your image in the public directory
@@ -44,7 +44,7 @@ export default function BottomMenu() {
                     </div>
                     <div className="flex w-full justify-center align-center"><span className='text-black text-xs font-semibold text-center'>Enviar</span></div>
                 </button>
-                <button class="flex flex-col justify-center align-center" onClick={() => router.push('/home')}>
+                <button class="flex flex-col justify-center align-center" onClick={() => router.push('/chat')}>
                     <div className='flex w-full justify-center align-center'>
                         <Image
                             src="/icons/chat.svg" // Path to your image in the public directory
