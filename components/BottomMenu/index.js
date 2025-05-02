@@ -10,7 +10,7 @@ export default function BottomMenu() {
     return (
         <div className="fixed bottom-0 left-0 right-0">
 
-            <div class="w-full h-14 left-0 top-0 flex justify-around bg-colors-5 rounded-tl-3xl rounded-tr-3xl pt-2">
+            <div class=" max-w-[600px] mx-auto w-full h-14 left-0 top-0 flex justify-around bg-colors-5 rounded-tl-3xl rounded-tr-3xl pt-2">
                 <button class="flex flex-col justify-center align-center" onClick={() => router.push('/home')}>
                     <div className='flex w-full justify-center align-center'>
                         <Image

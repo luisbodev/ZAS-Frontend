@@ -13,15 +13,15 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL +'/hello-world');
-      const result = await res.json();
-      setData(result);
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL +'/hello-world');
+  //     const result = await res.json();
+  //     setData(result);
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
   // return (
   //   <div>
   //     <h1>Data fetched from API</h1>
